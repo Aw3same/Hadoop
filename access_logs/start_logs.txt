@@ -1,0 +1,7 @@
+start_logs
+
+# Verificar
+tail_logs
+
+# Parar
+stop_logs

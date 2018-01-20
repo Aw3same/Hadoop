@@ -7,5 +7,3 @@ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar \
     -reducer reducer.py \
     -file ./mapper.py \
     -file ./reducer.py
-
-#Grabado

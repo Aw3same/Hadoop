@@ -45,6 +45,18 @@ git config --global user.name "Daniel Villanueva"
 git config --global user.email "dvillaj@gmail.com"
 ```
 
+### Twitter
+```
+sudo mkdir -p /usr/lib/flume-ng/plugins.d/twitter-streaming/lib/
+sudo mkdir -p /var/lib/flume-ng/plugins.d/twitter-streaming/lib/
+
+sudo cp $HOME/Hadoop/twitter/jar/flume-sources-1.0-SNAPSHOT.jar /usr/lib/flume-ng/plugins.d/twitter-streaming/lib
+sudo cp $HOME/Hadoop/twitter/jar/flume-sources-1.0-SNAPSHOT.jar /var/lib/flume-ng/plugins.d/twitter-streaming/lib
+
+sudo cp $HOME/Hadoop/twitter/jar/hive-serdes-1.0-SNAPSHOT.jar /usr/lib/hive/lib/
+sudo cp $HOME/Hadoop/twitter/jar/json-serde-1.3.6-SNAPSHOT-jar-with-dependencies.jar /usr/lib/hive/lib/
+```
+
 ### Kafka
 
 https://kafka.apache.org/quickstart

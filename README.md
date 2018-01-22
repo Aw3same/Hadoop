@@ -38,3 +38,10 @@ cat .ssh/id_rsa.pub
 git config --global user.name "Daniel Villanueva"
 git config --global user.email "dvillaj@gmail.com"
 ```
+
+### Kafka
+```
+cd
+wget http://apache.rediris.es/kafka/1.0.0/kafka_2.11-1.0.0.tgz
+tar -xzf kafka_2.11-1.0.0.tgz
+```

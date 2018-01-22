@@ -6,6 +6,12 @@
 | ------------- | ------------- | ------------- | 
 | ssh  | 2222  | 22 |
 
+## Acceso
+
+```
+ssh cloudera@localhost -p 2222
+```
+
 ## Instalación
 
 ### Python
@@ -44,4 +50,8 @@ git config --global user.email "dvillaj@gmail.com"
 cd
 wget http://apache.rediris.es/kafka/1.0.0/kafka_2.11-1.0.0.tgz
 tar -xzf kafka_2.11-1.0.0.tgz
+cd cd kafka_2.11-1.0.0
+
+bin/kafka-server-start.sh config/server.properties &
+
 ```

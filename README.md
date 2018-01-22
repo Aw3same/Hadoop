@@ -46,6 +46,8 @@ git config --global user.email "dvillaj@gmail.com"
 ```
 
 ### Kafka
+
+https://kafka.apache.org/quickstart
 ```
 cd
 wget http://apache.rediris.es/kafka/1.0.0/kafka_2.11-1.0.0.tgz

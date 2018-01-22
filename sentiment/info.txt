@@ -1,0 +1,1 @@
+https://www.cloudera.com/documentation/other/tutorial/CDH5/topics/ht_flume_to_hdfs.html

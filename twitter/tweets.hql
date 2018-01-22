@@ -1,6 +1,8 @@
- create database twitter;
+CREATE DATABASE twitter;
 
- CREATE EXTERNAL TABLE twitter.tweets (
+DROP TABLE IF EXISTS twitter.tweets;
+
+CREATE EXTERNAL TABLE twitter.tweets (
    id BIGINT,
    created_at STRING,
    source STRING,

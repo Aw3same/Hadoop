@@ -1,7 +1,7 @@
 #!/bin/bash
 
 get_data.sh \
-    --dir precios \
+    --dir data/precios \
     --item ListaEESSPrecio \
     https://sedeaplicaciones.minetur.gob.es/ServiciosRESTCarburantes/PreciosCarburantes/EstacionesTerrestres/
 

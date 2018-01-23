@@ -81,3 +81,7 @@ cd cd kafka_2.11-1.0.0
 bin/kafka-server-start.sh config/server.properties &
 
 ```
+
+### Impala
+
+https://www.cloudera.com/downloads/connectors/impala/odbc/2-5-41.html

@@ -1,3 +1,4 @@
+insert overwrite table retail.top10 
 -- top 10 revenue generating products
 select p.product_id, p.product_name, r.revenue
 from retail.products p 

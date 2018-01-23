@@ -5,6 +5,7 @@
 | Nombre  | Puerto Anfritión | Puerto Invitado|
 | ------------- | ------------- | ------------- | 
 | ssh  | 2222  | 22 |
+| jupyter  | 8889  | 8889 |
 
 ## Acceso Mac
 
@@ -85,3 +86,12 @@ bin/kafka-server-start.sh config/server.properties &
 ### Impala
 
 https://www.cloudera.com/downloads/connectors/impala/odbc/2-5-41.html
+
+### Jupyter
+
+```
+pip install jupyter
+jupyter notebook --generate-config
+cp $HOME/Hadoop/spark/jupyter_notebook_config.py $HOME/.jupyter
+```
+

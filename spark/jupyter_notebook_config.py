@@ -565,7 +565,7 @@ c.NotebookApp.token = ''
 #c.ContentsManager.pre_save_hook = None
 
 ## 
-#c.ContentsManager.root_dir = '/'
+#.ContentsManager.root_dir = '/'
 
 ## The base name used when creating untitled directories.
 #c.ContentsManager.untitled_directory = 'Untitled Folder'
@@ -667,3 +667,5 @@ c.NotebookApp.token = ''
 #  
 #  By default, all installed kernels are allowed.
 #c.KernelSpecManager.whitelist = set([])
+
+c.NotebookApp.notebook_dir= u'/home/cloudera/Hadoop/spark/notebooks'

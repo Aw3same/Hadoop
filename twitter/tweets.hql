@@ -29,3 +29,5 @@ CREATE EXTERNAL TABLE twitter.tweets (
  ) 
  ROW FORMAT SERDE 'com.cloudera.hive.serde.JSONSerDe'
  LOCATION '/raw/tweets';
+ 
+ -- select count(*) from twitter.tweets;

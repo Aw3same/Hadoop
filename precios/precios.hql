@@ -28,11 +28,11 @@ CREATE EXTERNAL TABLE precios.precio_combustible (
     `Longitud (WGS84)` STRING,
     `Precio Gas Natural Licuado` STRING,
     `Horario` STRING,
-    `Margen` STRING
+    `Margen` STRING,
+    `_timestamp` STRING
 ) 
 ROW FORMAT SERDE 'com.cloudera.hive.serde.JSONSerDe'
 LOCATION '/raw/precios';
 
-list jars;
-
-select * from precios.precio_combustible
+select * from precios.precio_combustible 
+limit 10;

@@ -6,10 +6,12 @@
 | ------------- | ------------- | ------------- | 
 | ssh  | 2222  | 22 |
 
-## Acceso
+## Acceso Mac
 
 ```
 ssh cloudera@localhost -p 2222
+
+sftp -P 2222 cloudera@localhost
 ```
 
 ## Instalación
@@ -45,7 +47,18 @@ git config --global user.name "Daniel Villanueva"
 git config --global user.email "dvillaj@gmail.com"
 ```
 
+### GetDataWS
+
+
+```
+git clone https://github.com/dvillaj/GetDataWS.git
+```
+
+
 ### Twitter
+
+https://github.com/dvillaj/cdh-twitter-example
+
 ```
 sudo mkdir -p /usr/lib/flume-ng/plugins.d/twitter-streaming/lib/
 sudo mkdir -p /var/lib/flume-ng/plugins.d/twitter-streaming/lib/
@@ -54,7 +67,6 @@ sudo cp $HOME/Hadoop/twitter/jar/flume-sources-1.0-SNAPSHOT.jar /usr/lib/flume-n
 sudo cp $HOME/Hadoop/twitter/jar/flume-sources-1.0-SNAPSHOT.jar /var/lib/flume-ng/plugins.d/twitter-streaming/lib
 
 sudo cp $HOME/Hadoop/twitter/jar/hive-serdes-1.0-SNAPSHOT.jar /usr/lib/hive/lib/
-sudo cp $HOME/Hadoop/twitter/jar/json-serde-1.3.6-SNAPSHOT-jar-with-dependencies.jar /usr/lib/hive/lib/
 ```
 
 ### Kafka

@@ -2,7 +2,7 @@
 
 use retail_db;
 
--- drop table retail_db.top10;
+drop table if exists retail_db.top10;
 
 create table retail_db.top10 (
     product_id int,

@@ -82,7 +82,6 @@ bin/kafka-server-start.sh config/server.properties &
 ```
 
 ### Análisis de sentimiento
-https://www.cloudera.com/documentation/other/tutorial/CDH5/topics/ht_flume_to_hdfs.html
 
 ```
 sudo yum install telnet
@@ -92,11 +91,22 @@ sudo yum install telnet
 
 https://www.cloudera.com/downloads/connectors/impala/odbc/2-5-41.html
 
+### Spark
+
+```
+sudo ln -s /usr/lib/hive/conf/hive-site.xml    /usr/lib/spark/conf/hive-site.xml
+sudo cp /etc/spark/conf/log4j.properties.template /etc/spark/conf/log4j.properties
+```
+
+
 
 ### Jupyter
 
 ```
 pip install jupyter
+pip install test_helper
+pip install matplotlib
+
 jupyter notebook --generate-config
 cp $HOME/Hadoop/spark/jupyter_notebook_config.py $HOME/.jupyter
 ```

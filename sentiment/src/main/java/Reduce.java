@@ -1,3 +1,5 @@
+package org.myorg;
+
 import java.io.IOException;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.io.IntWritable;

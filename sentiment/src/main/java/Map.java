@@ -1,3 +1,5 @@
+package org.myorg;
+
 // Basic Java file IO
 import java.io.BufferedReader;
 import java.io.File;
@@ -39,9 +41,6 @@ public class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
 	// Enumeration used for custom counters
 	enum Gauge {POSITIVE, NEGATIVE}
 
-	// IntWritable object set to the value 1 as counting increment.
-	private final static IntWritable one = new IntWritable(1);
-
 	// Reusable variable for each word instance in the incoming data.
 	private Text word = new Text();
 
@@ -82,55 +81,29 @@ public class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
 		int uriCount = 0;
 
 		if (config.getBoolean("mrmanager.skip.patterns", false)) {
-			parseSkipFile(localPaths[uriCount++]);
+			patternsToSkip = parseFile(localPaths[uriCount++]);
 		}
-		parsePositive(localPaths[uriCount++]);
-		parseNegative(localPaths[uriCount]);
+		goodWords = parseFile(localPaths[uriCount++]);
+		badWords = parseFile(localPaths[uriCount]);
 	}
 
 	// Parse the values to skip when reading input.
-	private void parseSkipFile(URI patternsURI) {
+	private Set<String> parseFile(URI patternsURI) {
+
+		Set<String> patterns = new HashSet<String>();
 		try {
 			BufferedReader fis = new BufferedReader(new FileReader
 			                                        (new File(patternsURI.getPath()).getName()));
 			String pattern;
 			while ((pattern = fis.readLine()) != null) {
-				patternsToSkip.add(pattern);
+				patterns.add(pattern);
 			}
 		} catch (IOException ioe) {
 			System.err.println("Caught exception parsing cached file '"
 			                   + patternsURI + "' : " + StringUtils.stringifyException(ioe));
 		}
-	}
 
-	// Parse the positive words to match and capture during Map phase.
-	private void parsePositive(URI goodWordsUri) {
-		try {
-			BufferedReader fis = new BufferedReader(new FileReader(
-			        new File(goodWordsUri.getPath()).getName()));
-			String goodWord;
-			while ((goodWord = fis.readLine()) != null) {
-				goodWords.add(goodWord);
-			}
-		} catch (IOException ioe) {
-			System.err.println("Caught exception parsing cached file '"
-			                   + goodWords + "' : " + StringUtils.stringifyException(ioe));
-		}
-	}
-
-	// Parse the negative words to match and capture during Reduce phase.
-	private void parseNegative(URI badWordsUri) {
-		try {
-			BufferedReader fis = new BufferedReader(new FileReader(
-			        new File(badWordsUri.getPath()).getName()));
-			String badWord;
-			while ((badWord = fis.readLine()) != null) {
-				badWords.add(badWord);
-			}
-		} catch (IOException ioe) {
-			System.err.println("Caught exception while parsing cached file '"
-			                   + badWords + "' : " + StringUtils.stringifyException(ioe));
-		}
+		return patterns;
 	}
 
 	public void map(LongWritable offset, Text lineText, Context context)
@@ -152,17 +125,22 @@ public class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
 			}
 			// Count instances of each (non-skipped) word.
 			currentWord = new Text(word);
-			context.write(currentWord, one);
+
+			int number = 0;
 
 			// Filter and count "good" words.
 			if (goodWords.contains(word)) {
 				context.getCounter(Gauge.POSITIVE).increment(1);
+				number = +1;
 			}
 
 			// Filter and count "bad" words.
 			if (badWords.contains(word)) {
 				context.getCounter(Gauge.NEGATIVE).increment(1);
+				number = -1;
 			}
+
+			context.write(currentWord, new IntWritable(number));
 		}
 	}
 }

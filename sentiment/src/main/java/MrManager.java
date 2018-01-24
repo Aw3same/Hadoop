@@ -1,3 +1,5 @@
+package org.myorg;
+
 // Basic MapReduce utility classes
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
@@ -30,6 +32,7 @@ public class MrManager extends Configured implements Tool {
 	public int run(String[] args) throws Exception {
 		Job job = Job.getInstance(getConf(), "mrmanager");
 		for (int i = 0; i < args.length; i += 1) {
+
 			if ("-skip".equals(args[i])) {
 				job.getConfiguration().setBoolean("mrmanager.skip.patterns", true);
 				i += 1;
@@ -87,18 +90,18 @@ public class MrManager extends Configured implements Tool {
 
 			// Display the results in the console.
 
-			System.out.println("\n\n\n**********\n\n\n");
+			System.out.println("\n\n**********\n\n");
 			System.out.println("Sentiment score = (" + good + " - " + bad + ") / (" + good +
 			                   " + " + bad + ")");
 			System.out.println("Sentiment score = " + sentiment);
-			System.out.println("\n\n");
+			System.out.println("\n");
 			System.out.println("Positivity score = " + good + "/(" + good + "+" + bad + ")");
 			System.out.println("Positivity score = " + positivityScore + "%");
-			System.out.println("\n\n\n********** \n\n\n\n");
+			System.out.println("\n\n********** \n\n");
 		} else {
-			System.out.println("\n\n\n**********\n\n\n");
+			System.out.println("\n\n**********\n\n");
 			System.out.println("No positive or negative words found in input data.");
-			System.out.println("\n\n\n**********\n\n\n");
+			System.out.println("\n\n\*********\n\n");
 		}
 		/*
 		 *

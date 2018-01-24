@@ -15,8 +15,6 @@ ssh cloudera@localhost -p 2222
 sftp -P 2222 cloudera@localhost
 ```
 
-## Instalación
-
 ### Python
 
 ```
@@ -83,9 +81,17 @@ bin/kafka-server-start.sh config/server.properties &
 
 ```
 
+### Análisis de sentimiento
+https://www.cloudera.com/documentation/other/tutorial/CDH5/topics/ht_flume_to_hdfs.html
+
+```
+sudo yum install telnet
+```
+
 ### Impala
 
 https://www.cloudera.com/downloads/connectors/impala/odbc/2-5-41.html
+
 
 ### Jupyter
 

@@ -16,6 +16,7 @@ CREATE EXTERNAL TABLE twitter.tweets (
      user_mentions:ARRAY<STRUCT<screen_name:STRING,name:STRING>>,
      hashtags:ARRAY<STRUCT<text:STRING>>>,
    text STRING,
+   retweet_count INT,
    user STRUCT<
      screen_name:STRING,
      name:STRING,

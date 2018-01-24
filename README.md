@@ -97,6 +97,9 @@ https://www.cloudera.com/downloads/connectors/impala/odbc/2-5-41.html
 
 ```
 pip install jupyter
+pip install test_helper
+pip install matplotlib
+
 jupyter notebook --generate-config
 cp $HOME/Hadoop/spark/jupyter_notebook_config.py $HOME/.jupyter
 ```

@@ -6,6 +6,7 @@
 | ------------- | ------------- | ------------- | 
 | ssh  | 2222  | 22 |
 | jupyter  | 8889  | 8889 |
+| MongoDB  | 27017 | 27017 |
 
 ## Acceso Mac
 
@@ -107,16 +108,32 @@ pip install jupyter
 pip install test_helper
 pip install matplotlib
 
-jupyter notebook --generate-config
+jupyter notebook --generate-
+
 cp $HOME/Hadoop/spark/jupyter_notebook_config.py $HOME/.jupyter
 ```
 
 ### Mongo
 
-echo "[mongodb-org-3.4]
+```
+sudo nano /etc/yum.repos.d/mongodb-org-3.4.repo
+
+[mongodb-org-3.4]
 name=MongoDB 3.4 Repository
 baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
 gpgcheck=0
-enabled=1" | sudo tee /etc/yum.repos.d/mongodb-org-3.4.repo
+enabled=1
+```
 
+
+```
 sudo yum install -y mongodb-org
+
+sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/' /etc/mongod.conf
+sudo service mongod restart
+
+pip install pymongo
+```
+
+https://robomongo.org/
+

@@ -41,6 +41,7 @@ cat .ssh/id_rsa.pub
 ```
 
 ### Git
+
 ```
 git config --global user.name "Daniel Villanueva"
 git config --global user.email "dvillaj@gmail.com"
@@ -75,13 +76,22 @@ https://kafka.apache.org/quickstart
 cd
 wget http://apache.rediris.es/kafka/1.0.0/kafka_2.11-1.0.0.tgz
 tar -xzf kafka_2.11-1.0.0.tgz
-cd cd kafka_2.11-1.0.0
 
-bin/kafka-server-start.sh config/server.properties &
-
+echo 'export KAFKA_HOME=$HOME/kafka_2.11-1.0.0' >> $HOME/.bashrc
+echo 'export PATH=$KAFKA_HOME/bin:$PATH' >> $HOME/.bashrc
+source $HOME/.bashrc
 ```
 
-### Análisis de sentimiento
+| Operación  | Comando |
+| ------------- | ------------- | 
+| Iniciar el servidor | kafka-server-start.sh $KAFKA_HOME/config/server.properties
+| Crear un tópico | kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+| Borrar un tópico | kafka-topics.sh --delete --zookeeper localhost:2181 --topic test
+| Listar los tópicos | kafka-topics.sh --list --zookeeper localhost:2181
+| Ejemplo de productor | kafka-console-producer.sh --broker-list localhost:9092 --topic test
+| Ejemplo de consumidor | kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning 
+
+### Telnet
 
 ```
 sudo yum install telnet
@@ -110,4 +120,3 @@ pip install matplotlib
 jupyter notebook --generate-config
 cp $HOME/Hadoop/spark/jupyter_notebook_config.py $HOME/.jupyter
 ```
-

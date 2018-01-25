@@ -111,3 +111,12 @@ jupyter notebook --generate-config
 cp $HOME/Hadoop/spark/jupyter_notebook_config.py $HOME/.jupyter
 ```
 
+### Mongo
+
+echo "[mongodb-org-3.4]
+name=MongoDB 3.4 Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
+gpgcheck=0
+enabled=1" | sudo tee /etc/yum.repos.d/mongodb-org-3.4.repo
+
+sudo yum install -y mongodb-org

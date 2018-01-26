@@ -8,6 +8,18 @@
 | jupyter  | 8889  | 8889 |
 | MongoDB  | 27017 | 27017 |
 
+
+## Dependencias
+
+```
+cd
+git clone https://github.com/dvillaj/TwitterData.git
+git clone https://github.com/dvillaj/GetDataWS.git
+
+echo 'export PATH=$PATH:$HOME/GetDataWS/' >> /home/cloudera/.bashrc
+source $HOME/.bashrc
+```
+
 ## Acceso Mac
 
 ```

@@ -18,6 +18,9 @@ chmod a+x Miniconda2-latest-Linux-x86_64.sh
 ./Miniconda2-latest-Linux-x86_64.sh
 
 source $HOME/.bashrc
+python --version
+
+rm Miniconda2-latest-Linux-x86_64*
 
 pip install tweepy
 pip install PrettyTable

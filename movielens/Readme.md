@@ -6,7 +6,7 @@ gunzip data/movielens.sql.gz
 mysql -u root -pcloudera < data/movielens.sql
 ```
 
-## Ingestión de datos
+## Ingesta de la información
 
 ```
 sqoop list-databases \

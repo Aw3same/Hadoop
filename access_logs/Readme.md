@@ -1,6 +1,7 @@
 # Logs de un servidor web
 
 ```
+cd $HOME/Hadoop/access_logs
 hadoop fs -rm -r /raw/logs
 hadoop fs -mkdir -p /raw/logs
 hadoop fs -put data/access_log /raw/logs

@@ -33,6 +33,7 @@ pip install pandas
 
 ```
 cd
+git clone https://github.com/dvillaj/Hadoop.git
 git clone https://github.com/dvillaj/cdh-twitter-example.git
 git clone https://github.com/dvillaj/TwitterData.git
 git clone https://github.com/dvillaj/GetDataWS.git

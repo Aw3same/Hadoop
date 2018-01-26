@@ -17,16 +17,16 @@ object RandomFunExample {
     val users: RDD[(VertexId, (String, String))] =
       sc.parallelize(Array((3L, ("rxin", "student")), (7L, ("jgonzal", "postdoc")),
         (5L, ("franklin", "prof")), (2L, ("istoica", "prof"))))
-    // Create an RDD for edges
 
+    // Create an RDD for edges
     val relationships: RDD[Edge[String]] =
       sc.parallelize(Array(Edge(3L, 7L, "collab"), Edge(5L, 3L, "advisor"),
         Edge(2L, 5L, "colleague"), Edge(5L, 7L, "pi")))
+
     // Define a default user in case there are relationship with missing user
-
     val defaultUser = ("John Doe", "Missing")
-    // Build the initial Graph
 
+    // Build the initial Graph
     val graph = Graph(users, relationships, defaultUser)
 
     //The following failed I had to change the config on the following
@@ -47,7 +47,7 @@ object RandomFunExample {
     val degrees2 = graph.inDegrees
     degrees2.take(10)
 
-    //This will giv eyou the node ID with the number of triangles 
+    //This will give you the node ID with the number of triangles 
     //next to that triangle
     val tr = graph.triangleCount
     tr.vertices.take(10)
@@ -57,8 +57,7 @@ object RandomFunExample {
 
     val graphPingBasic = graph.pregel("A", 1)(
         (id, dist, newDist) => (dist._1, dist._2 + newDist), 
-        triplet => 
-          Iterator.empty, 
+        triplet => Iterator.empty, 
         (a,b) => a + "|" + b)
     
     val graphPing = graph.pregel("A", 1)(
@@ -69,8 +68,7 @@ object RandomFunExample {
             (dist._1, dist._2)
           }
         },
-        triplet => 
-          Iterator((triplet.dstId, "F")), 
+        triplet => Iterator((triplet.dstId, "F")), 
         (a,b) => a)
         
     graphPing.vertices.take(10)

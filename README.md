@@ -30,11 +30,29 @@ pip install pandas
 
 ```
 cd
+git clone https://github.com/dvillaj/cdh-twitter-example.git
 git clone https://github.com/dvillaj/TwitterData.git
 git clone https://github.com/dvillaj/GetDataWS.git
 
 echo 'export PATH=$PATH:$HOME/GetDataWS/' >> /home/cloudera/.bashrc
 source $HOME/.bashrc
+```
+
+## Drivers JSON
+
+```
+cd $HOME/cdh-twitter-example/flume-sources/
+mnv package
+
+cd $HOME/cdh-twitter-example/hive-serdes/
+mnv package
+
+sudo mkdir -p /usr/lib/flume-ng/plugins.d/twitter-streaming/lib/
+sudo mkdir -p /var/lib/flume-ng/plugins.d/twitter-streaming/lib/
+
+sudo cp $HOME//cdh-twitter-example/flume-sources/target/flume-sources-1.0-SNAPSHOT.jar /usr/lib/flume-ng/plugins.d/twitter-streaming/lib
+sudo cp $HOME//cdh-twitter-example/flume-sources/target/flume-sources-1.0-SNAPSHOT.jar /var/lib/flume-ng/plugins.d/twitter-streaming/lib
+
 ```
 
 ## Acceso Mac
@@ -71,23 +89,8 @@ git config --global user.email "dvillaj@gmail.com"
 ```
 
 
-## Twitter
-
-https://github.com/dvillaj/cdh-twitter-example
-
-```
-sudo mkdir -p /usr/lib/flume-ng/plugins.d/twitter-streaming/lib/
-sudo mkdir -p /var/lib/flume-ng/plugins.d/twitter-streaming/lib/
-
-sudo cp $HOME/Hadoop/twitter/jar/flume-sources-1.0-SNAPSHOT.jar /usr/lib/flume-ng/plugins.d/twitter-streaming/lib
-sudo cp $HOME/Hadoop/twitter/jar/flume-sources-1.0-SNAPSHOT.jar /var/lib/flume-ng/plugins.d/twitter-streaming/lib
-
-sudo cp $HOME/Hadoop/twitter/jar/hive-serdes-1.0-SNAPSHOT.jar /usr/lib/hive/lib/
-```
-
 ## Kafka
 
-https://kafka.apache.org/quickstart
 ```
 cd
 wget http://apache.rediris.es/kafka/1.0.0/kafka_2.11-1.0.0.tgz
@@ -124,6 +127,9 @@ https://www.cloudera.com/downloads/connectors/impala/odbc/2-5-41.html
 ```
 sudo ln -s /usr/lib/hive/conf/hive-site.xml    /usr/lib/spark/conf/hive-site.xml
 sudo cp /etc/spark/conf/log4j.properties.template /etc/spark/conf/log4j.properties
+
+sudo sed -i 's/log4j.rootCategory=INFO/log4j.rootCategory=WARN/' /etc/spark/conf/log4j.properties
+
 ```
 
 ## Jupyter
@@ -135,23 +141,15 @@ pip install matplotlib
 
 jupyter notebook --generate-
 
+rm -f $HOME/.jupyter/jupyter_notebook_config.py
 cp $HOME/Hadoop/spark/jupyter_notebook_config.py $HOME/.jupyter
 ```
 
 ## Mongo
 
 ```
-sudo nano /etc/yum.repos.d/mongodb-org-3.4.repo
+sudo cp $HOME/Hadoop/config/mongodb-org-3.6.repo /etc/yum.repos.d/mongodb-org-3.6.repo
 
-[mongodb-org-3.4]
-name=MongoDB 3.4 Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
-gpgcheck=0
-enabled=1
-```
-
-
-```
 sudo yum install -y mongodb-org
 
 sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/' /etc/mongod.conf
@@ -166,12 +164,15 @@ https://robomongo.org/
 
 ## Sublime Text
 
+https://www.sublimetext.com/
+https://packagecontrol.io/installation
 
 ### Paquetes
+
 - SFTP
 - Generic Config
 - MarkDown Preview
--
+- BracketHighlighter
 
 ### Preferencias
 ```

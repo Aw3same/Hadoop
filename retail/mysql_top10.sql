@@ -1,5 +1,3 @@
- -- mysql -u retail_dba -pcloudera < mysql_top10.sql
-
 use retail_db;
 
 drop table if exists retail_db.top10;

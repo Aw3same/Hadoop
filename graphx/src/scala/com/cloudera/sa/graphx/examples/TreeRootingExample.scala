@@ -8,7 +8,7 @@ object TreeRootingExample {
   def main(args: Array[String]) {
     if (args.length == 0) {
       println("TreeRooterExample <masterUrl> <name> <sparkHome>")
-      exit(0)
+      System.exit(1)
     }
 
     val sc = new SparkContext(args(0), args(1), args(2), Seq("GraphXExample.jar"))

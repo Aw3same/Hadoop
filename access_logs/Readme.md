@@ -23,6 +23,8 @@ beeline -u jdbc:hive2:// -f insert.hql
 
 ## Logs
 
+tail -f /opt/gen_logs/logs/access.log
+
 | Acción  | Comando |
 | ------------- | ------------- | 
 | Iniciar | start_logs |

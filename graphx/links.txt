@@ -1,1 +1,0 @@
-https://www.cloudera.com/documentation/enterprise/release-notes/topics/cdh_vd_cdh5_maven_repo_512x.html

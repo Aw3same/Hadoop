@@ -9,6 +9,23 @@
 | MongoDB  | 27017 | 27017 |
 
 
+## Python
+
+```
+cd
+wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+chmod a+x Miniconda2-latest-Linux-x86_64.sh
+./Miniconda2-latest-Linux-x86_64.sh
+
+source $HOME/.bashrc
+
+pip install tweepy
+pip install PrettyTable
+pip install pprintpp
+pip install pandas
+
+```
+
 ## Dependencias
 
 ```
@@ -28,14 +45,6 @@ ssh cloudera@localhost -p 2222
 sftp -P 2222 cloudera@localhost
 ```
 
-## Python
-
-```
-cd
-wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
-chmod a+x Miniconda2-latest-Linux-x86_64.sh
-./Miniconda2-latest-Linux-x86_64.sh
-```
 
 ## Python 3
 ```

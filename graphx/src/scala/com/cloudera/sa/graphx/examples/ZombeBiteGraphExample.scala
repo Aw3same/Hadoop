@@ -8,7 +8,7 @@ object ZombeBiteGraph {
 def main(args: Array[String]) {
     if (args.length == 0) {
       println("ZombeBiteGraph <masterUrl> <name> <sparkHome>")
-      exit
+      exit(0)
     }
 
     val sc = new SparkContext(args(0), args(1), args(2), Seq("GraphXExample.jar"))

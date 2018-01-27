@@ -3,6 +3,7 @@
 ## Ingesta de datos
 ```
 cd $HOME/Hadoop/retail
+
 sqoop --options-file import-all-dbretail.conf
 
 beeline -u jdbc:hive2:// -f top10.hql

@@ -45,12 +45,6 @@ source $HOME/.bashrc
 ## Drivers JSON
 
 ```
-cd $HOME/cdh-twitter-example/flume-sources/
-mnv package
-
-cd $HOME/cdh-twitter-example/hive-serdes/
-mnv package
-
 sudo mkdir -p /usr/lib/flume-ng/plugins.d/twitter-streaming/lib/
 sudo mkdir -p /var/lib/flume-ng/plugins.d/twitter-streaming/lib/
 

@@ -3,6 +3,8 @@
 ## Ingesta de la información
 
 ```
+cd $HOME/Hadoop/spark
+
 hadoop fs -rm -r shakespeare.txt
 hadoop fs -put data/shakespeare.txt
 ```

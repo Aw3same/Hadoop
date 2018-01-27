@@ -3,11 +3,13 @@
 ## Ingesta de la información
 
 ```
+cd $HOME/Hadoop/temperature
+
 hadoop fs -rm -r /raw/ncdc
 hadoop fs -put data/ncdc /raw
 ```
 
-## Procesamiento en local
+## Procesamiento en local 
 
 ```
 cat data/ncdc/sample/sample.txt | \

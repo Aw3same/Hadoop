@@ -3,6 +3,8 @@
 ## Ingesta de la información
 
 ```
+cd $HOME/Hadoop/trends
+
 gunzip data/twitter-trends.json.gz
 
 hadoop fs -rm -r /raw/trends

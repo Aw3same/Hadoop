@@ -4,7 +4,7 @@
 cd $HOME/Hadoop/wordcount
 ```
 
-## Ingesta
+## Ingesta de la información
 ```
 tar xvf data/shakespeare.tar.gz
 hadoop fs -put shakespeare shakespeare

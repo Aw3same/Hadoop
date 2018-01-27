@@ -11,19 +11,21 @@ hadoop fs -ls /raw/logs
 beeline -u jdbc:hive2:// -f logs.hql
 ```
 
-## Ingestión en tiempo real
+## Ingesta en tiempo real
 ```
 flume-ng agent -f ingest-log-access.conf -n agent1
 ```
 
-## Inserción de datos
+## Proceso de inserción de datos
 ```
 beeline -u jdbc:hive2:// -f insert.hql
 ```
 
 ## Logs
 
+```
 tail -f /opt/gen_logs/logs/access.log
+```
 
 | Acción  | Comando |
 | ------------- | ------------- | 

@@ -43,11 +43,11 @@ CREATE EXTERNAL TABLE precios.ComunidadesAutonomas (
     CCAA STRING, 
     IDCCAA STRING
 ) 
-ROW FORMAT SERDE 'com.cloudera.hive.serde.JSONSerDePlus'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '|'
 LOCATION '/raw/ccaa';
 
 
-CREATE TABLE diesel (
+CREATE TABLE precios.diesel (
     ideess string, 
     dia string, 
     hora int, 
